@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanzine</title>
+    <style>
+       * { margin: 12px; box-sizing: border-box; }
+       body { font-family: sans-serif; }
+       img { max-width: 100%; }
+
+       section {
+        min-height: 100vh;
+        display : flex;
+        flex-direction: column;
+        justify-content: space-between;
+       }
+
+       section figure { flex: 1 1 100%;}
+       section .content { flex: 0 1 auto; }
+
+
+       figure { display: flex; } 
+       section figure img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left top;
+       }
+
+       /* colonnes */
+       .row { display: flex; gap: 1rem; }
+       .row > * { flex: 1; }
+
+       .content { padding: 1rem; }
+
+       /* scroll */
+       html, body { scroll-snap-type: y mandatory; }
+       section { scroll-snap-align: start; }
+
+
+       /* section { outline: 2px solid rgb(255, 0, 255); outline-offset: -3px; }
+       figure { outline: 2px solid rgb(76, 0, 255); outline-offset: -3px; }
+       .content { outline: 2px solid rgb(86, 0, 68); outline-offset: -3px; } */
+    </style>
+</head>
+
+<body>
+    <section>
+        <figure>
+            <img src="img-test.jpg" alt="">
+        </figure>
+        <div class="content row">
+            <h3>Minor threat</h3>
+            <p>djiejncenciencjeicneucnjefhciencuenf</p>
+            <p>dbbcjedbchedudcbdejcuecjebhc ejcbdehjbcbncbdehc nfbvcnf vncfbv fh </p>
+        </div>
+    </section>
+
+    <section>
+        <figure>
+            <img src="1.jpg" alt="">
+        </figure>
+        <div class="content row">
+            <h3>Minor threat</h3>
+            <p>djiejncenciencjeicneucnjefhciencuenf</p>
+            <p>dbbcjedbchedudcbdejcuecjebhc ejcbdehjbcbncbdehc nfbvcnf vncfbv fh </p>
+        </div>
+    </section>
+
+    <section>
+        <figure>
+            <img src="2.jpg" alt="">
+        </figure>
+        <div class="content row">
+            <h3>Minor threat</h3>
+            <p>djiejncenciencjeicneucnjefhciencuenf</p>
+            <p>dbbcjedbchedudcbdejcuecjebhc ejcbdehjbcbncbdehc nfbvcnf vncfbv fh </p>
+        </div>
+    </section>
+
+    <section>
+        <figure>
+            <img src="3.jpg" alt="">
+        </figure>
+        <div class="content row">
+            <h3>Minor threat</h3>
+            <p>djiejncenciencjeicneucnjefhciencuenf</p>
+            <p>dbbcjedbchedudcbdejcuecjebhc ejcbdehjbcbncbdehc nfbvcnf vncfbv fh </p>
+        </div>
+    </section>
+
+    <section>
+        <figure>
+            <img src="4.jpg" alt="">
+        </figure>
+        <div class="content row">
+            <h3>Minor threat</h3>
+            <p>djiejncenciencjeicneucnjefhciencuenf</p>
+            <p>dbbcjedbchedudcbdejcuecjebhc ejcbdehjbcbncbdehc nfbvcnf vncfbv fh </p>
+        </div>
+    </section>
+
+    
+</body>
+</html>

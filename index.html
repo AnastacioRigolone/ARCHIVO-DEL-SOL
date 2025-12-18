@@ -4,40 +4,345 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fanzine</title>
+
     <style>
-       * { margin: 12px; box-sizing: border-box; }
-       body { font-family: sans-serif; }
-       img { max-width: 100%; }
 
-       section {
-        min-height: 100vh;
-        display : flex;
+/*--------------------------- BOX ---------------------------*/
+.box {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  background: #1A5632;          
+  mix-blend-mode: difference;  
+  transform: translate(0, -50%);
+}
+
+
+.box2 {
+  position: fixed;
+  top: 65%;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  background: #FF6200;         
+  mix-blend-mode: difference;   
+  transform: translate(0, -50%);
+}
+
+.box,
+.box2 {
+  position: fixed;
+  z-index: -1;            /* 🔥 les place derrière tout le contenu */
+  pointer-events: none;   /* facultatif : évite de bloquer les clics */
+}
+
+/*--------------------------- FONTS FAMILY ---------------------------*/
+
+        @font-face {
+            font-family: "ErotiqueAlternateTrial-Bold";
+            src: url("Fonts/ErotiqueAlternateTrial-Bold.ttf");
+        }
+
+        @font-face {
+            font-family: "NeueMetanaNext-SemiBold";
+            src: url("Fonts/NeueMetanaNext-SemiBold.otf");
+        }
+
+        @font-face {
+            font-family: "NeueMetanaNextOutline-Black";
+            src: url("Fonts/NeueMetanaNextOutline-Black.otf");
+        }
+
+         @font-face {
+            font-family: "Syne-Regular";
+            src: url("Fonts/Syne-Regular");
+        }
+
+        @font-face {
+            font-family: "Syne-Extra";
+            src: url("Fonts/Syne-Extra.ttf");
+        }
+
+        figure { 
+            /* outline: 10px solid rgb(0, 0, 0); outline-offset: -12px; */
+            border:12px solid #000000;
+        }
+
+        h1 {
+            font-family: "NeueMetanaNext-SemiBold";
+            font-size: 2em;
+            color: #FF6200;
+        }
+
+         h2 {
+            font-family: "ErotiqueAlternateTrial-Bold";
+            font-size: 1em;
+            color: #FF6200;
+        }
+
+        h3 {
+            font-family: "ErotiqueAlternateTrial-Bold";
+            font-size: 1em;
+            color: #1A5632;
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        h4 {
+            font-family: "NeueMetanaNext-SemiBold";
+            font-size: 4.5em;
+            color: #000000;
+            margin-top: 0%;
+        }
+
+        p {
+            font-family: "Syne-Regular";
+            font-size: 1sem;
+        }
+
+        a {
+            font-family: Syne-Extra;
+
+        }
+
+/*--------------------------- MENU ---------------------------*/
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* hauteur du header */
+  z-index: 1000;
+}
+
+main {
+  margin-top: 70px; /* même taille que la hauteur du header */
+}
+
+header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+@media(max-width: 1280px){
+    header {
         flex-direction: column;
-        justify-content: space-between;
+        align-items: flex-start;
+        position: static;
+        color: rgb(0, 0, 0);
+    }
+    header .menu-btn{
+        color: rgb(0, 0, 0);
+    }
+}
+
+@media(max-width: 960px){
+    header nav {
+        flex-direction: column;
+        color: rgb(0, 0, 0);
+    }
+}
+
+.logo {
+    font-size: 32px;
+    cursor: pointer;
+    margin-top: 4rem;
+    padding-left: 8rem;
+}
+
+.bold {
+    font-family: Syne-Extra ;
+    color: #1A5632;
+}
+
+.italic {
+    font-family: ErotiqueAlternateTrial-Bold ;
+    font-style: italic;
+    font-size: 40px;
+    color: #FF6200;
+}
+
+/*--------------------------- Menu à droite ---------------------------*/
+nav {
+    display: flex;
+    gap: 40px;
+    padding-right: 8rem;
+    margin-top: 2rem;
+}
+
+.menu-btn {
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+    color: #1A5632;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/*--------------------------- INTRODUCTION ---------------------------*/
+
+/* espace entre le menu et le contenu */
+.contentblockIntro {
+        margin-top: 200px;
+        display: flex;
+        padding-left: 2rem;
+        padding-right: 2rem;
+}
+
+
+       .contentblockIntro > div:first-of-type {
+        flex: 0 1 30rem;
        }
 
-       section figure { flex: 1 1 100%;}
-       section .content { flex: 0 1 auto; }
-
-
-       figure { display: flex; } 
-       section figure img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: left top;
+       .contentblockIntro > div:last-of-type {
+        flex: 1 0 30rem;
+        
        }
 
-       /* colonnes */
+       @media(max-width: 60rem) {
+        .contentblockIntro {flex-direction: column;}
+        .contentblockIntro > div {flex: 1!important;}
+       }
+
+.italictext {
+        font-family: ErotiqueAlternateTrial-Bold ;
+        font-style: italic;
+        font-size: 90px;
+        color: #FF6200;
+}
+
+/*.contentblockIntro {
+        margin-top: 200px;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }*/
+
+/*--------------------------- Hover souligné ---------------------------*/
+.menu-btn::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #FF6200;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.menu-btn:hover::after {
+    width: 100%;
+}
+
+
+* { box-sizing: border-box; }
+    body { font-family: sans-serif; }
+    img { max-width: 100%;}
+
+section {
+    min-height: 100vh;
+    display : flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+section figure { flex: 1 1 100%;}
+section .content { flex: 0 1 auto; }
+
+
+figure { 
+    display: flex; 
+    }
+
+section figure img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-height: 100vh;
+    }
+
+/*--------------------------- COLONNES ---------------------------*/
        .row { display: flex; gap: 1rem; }
        .row > * { flex: 1; }
 
        .content { padding: 1rem; }
 
-       /* scroll */
+       p,h1,h2,h3, h4, h5, h6, blockquote,li {
+        max-width: 80ch;
+       }
+
+       img {
+        max-height: 80vh;
+       }
+
+       section {
+        max-width: 60rem;
+        margin: auto;
+       }
+
+       .contentblock {
+        display: flex;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+       }
+
+       .contentblock > div:first-of-type {
+        flex: 0 1 30cm;
+       }
+
+       .contentblock > div:last-of-type {
+        flex: 1 0 30rem;
+       }
+
+       @media(max-width: 60rem) {
+        .contentblock {flex-direction: column;}
+        .contentblock > div {flex: 1!important;}
+       }
+
+/*--------------------------- FOOTER ---------------------------*/
+h2 { 
+    position: fixed;
+    bottom: 2px; right: 2px;
+    padding: 1rem;
+    background-color: #1A5632;
+    color: #FF6200;
+}
+
+h5 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 70px;
+    font-family: "ErotiqueAlternateTrial-Bold";
+    font-style: italic;
+    color: #000000;
+}
+
+/*------------------------------------------------------*/
+       /* scroll 
        html, body { scroll-snap-type: y mandatory; }
-       section { scroll-snap-align: start; }
+       section { scroll-snap-align: start; }*/
 
 
        /* section { outline: 2px solid rgb(255, 0, 255); outline-offset: -3px; }
@@ -46,62 +351,156 @@
     </style>
 </head>
 
+
+
+
+
+
+<!------------------------------------------------------------- HTML ------------------------------------------------------------->
 <body>
-    <section>
+    <header>
+        <div class="logo" onclick="goHome()">
+            <span class="bold">Archivos</span> 
+            <br><span class="italic">Del Sur.</span>
+        </div>
+    
+        <nav>
+            <a href="#fashion" class="menu-btn">Fashion.</a>
+            <a href="#artgraphique" class="menu-btn">Art Graphique.</a>
+            <a href="#musique" class="menu-btn">Musique.</a>
+            <a href="#football" class="menu-btn">Football.</a>
+        </nav>
+    </header>
+
+<!------------------------------ INTRODUCTION ------------------------------>
+        <section>
+            <div class="contentblockIntro">
+                <div class="box"></div>
+                <div class="box box2"></div>
+                <script src="script.js"></script>
+                
+                <div>
+                <h4>Archive comme matière <span class="italictext">vivante</span></h4>
+                </div>
+
+                <div>
+                    <p>L’Amérique du Sud n’est pas un musée figé : elle est une archive vivante où chaque pays préserve sa mémoire en
+                    mouvement. Sur ce continent, l’<a href="#" class="menu-btn">art ne dort jamais.</a> Il circule dans les rues, s’accorde au vent des montagnes, se
+                    mêle aux cris des stades et se glisse entre les tissus taillés pour la fête.
+                    <br>
+                    <br>Ce <a href="#" class="menu-btn">magazine</a> propose une traversée sensible de ces patrimoines qui respirent encore. La Colombie y dévoile ses murs graphiques, la Bolivie fait vibrer l’air de ses instruments ancestraux, l’Argentine transforme le football en récit national, et le Brésil habille l’identité de son peuple dans des couleurs éclatantes.
+                    <br>
+                    <br>Voici un <a href="#" class="menu-btn">voyage</a> parmi les expressions qui façonnent le <a href="#" class="menu-btn">Sud</a>, là où la mémoire devient création et où chaque
+                    archive garde le rythme du présent.</p>
+                </div>
+            </div>
+            </section>
+
+<!------------------------------ BRESIL ------------------------------>
+            <section id="fashion">
+                <figure>
+                <img src="imgs/Brésil.jpg" alt="">
+            </figure>
+            <div class="contentblock">
+                <div>
+                <h1>La mode au Brésil : tissus vivants, coutures du peuple</h1>
+                </div>
+
+                <div>
+                <p>Les archives du Brésil s’ouvrent comme une garde-robe flamboyante. On y trouve les parures religieuses
+                    afro-brésiliennes, les broderies du Nordeste, les silhouettes élancées du carnaval de Rio et les tissages
+                    amazoniens qui racontent les rêves des forêts.</p>
+                <p>La mode brésilienne est une célébration du corps en mouvement. Elle vit dans les ateliers populaires autant
+                    que dans les podiums internationaux. Chaque couleur est une pulsation, chaque motif une mémoire, chaque
+                    vêtement une archive textile qui respire le métissage du pays.</p>
+                <p>Sous les paillettes ou dans le coton brut, le Brésil habille le monde à l’image de sa propre joie :
+                    éclatante, libre et profondément humaine.</p>
+                </div>
+            </div>
+        </section>
+
+<!------------------------------ COLOMBIE ------------------------------>
+        <section id="artgraphique">
+            <figure>
+                <img src="imgs/colombie.jpg" alt="">
+            </figure>
+            <div class="contentblock">
+                <div>
+                    <h1>L’art graphique en Colombie : entre murs, mythes et mémoire</h1>
+                </div>
+
+                <div>
+                    <p>L’art graphique colombien ressemble à une longue respiration entre montagne et mer. Dans les archives de Bogotá, on trouve des affiches de rue aux couleurs vibrantes, créées pendant les années 1970, mêlant protestation, poésie et silhouettes andines.
+                    <br>
+                    <br>Les graveurs comme Pedro Alcántara ou Olga de Amaral ont laissé des empreintes où l’encre semble se souvenir du pays mieux que quiconque : rues de Cali, visages métissés, jungle qui se devine en arrière-plan.
+                    </p>
+                    
+                    <p>Aujourd’hui encore, les murs de Medellín et de Barranquilla prolongent cette tradition graphique : un art né pour témoigner, pour protester, pour rêver. Comme si chaque trait était un fragment du pays, préservé quelque part dans une archive vivante.</p>
+                </div>
+            </div>
+        </section>
+
+
+<!------------------------------ BOLIVIE ------------------------------>
+    <section id="musique">
         <figure>
-            <img src="img-test.jpg" alt="">
+            <img src="imgs/bolivie.jpg" alt="">
         </figure>
-        <div class="content row">
-            <h3>Photography</h3>
-            <p>Novembre</p>
-            <p>2025</p>
+        <div class="contentblock">
+            <div>
+                <h1>La musique en Bolivie : souffle des Andes, mémoire des peuples</h1>
+            </div>
+
+            <div>
+                <p>La Bolivie garde dans ses archives sonores un trésor ancien : le souffle long des zampoñas, les battements sacrés des tambours aymaras, la plainte douce du charango taillé autrefois dans une carapace d’armadillo.</p>
+                <p>Sur l’Altiplano, la musique n’est pas un art, mais une respiration. Chaque village conserve un répertoire transmis de génération en génération, comme une carte secrète du passé. Les chants que l’on croit anodins sont des messagers : ils racontent les révoltes, les semailles, les mariages et les métamorphoses des dieux.</p>
+                <p>Écouter la Bolivie, c’est ouvrir un document vivant, une archive qui danse à chaque souffle de vent sur les montagnes.</p>
+            </div>
         </div>
     </section>
 
-    <section>
+<!------------------------------ ARGENTINE ------------------------------>
+    <section id="football">
         <figure>
-            <img src="1.jpg" alt="">
+            <img src="imgs/argentine.jpg" alt="">
         </figure>
-        <div class="content row">
-            <h3>Photography</h3>
-            <p>Novembre</p>
-            <p>2025</p>
+        <div class="contentblock">
+            <div>
+            <h1>Le football en Argentine : chroniques d’un pays qui joue son identité</h1>
+            </div>
+
+            <div>
+                <p>Dans les archives jaunies de Buenos Aires, on retrouve des photos de terrains poussiéreux où les enfants tapent dans une balle comme si le monde entier en dépendait. L’Argentine a fait du football un langage national : un composé de passion, d’élégance et de tragédie douce.</p>
+                <p>Des clubs de quartier aux grands stades, chaque maillot raconte une époque. Le dribble devient un geste littéraire, l’attaque une poésie rapide, le but un acte de foi profane. Les chroniques anciennes parlent de matches où le temps semble s’être arrêté, suspendu entre le bruit des tribunes et la grâce des mouvements.</p>
+                <p>Le football argentin est plus qu’un sport : c’est un grand livre collectif, une archive de chair et de chants.</p>
+            </div>
         </div>
     </section>
 
+
+<!------------------------------ CONCLUSION ------------------------------>
     <section>
         <figure>
-            <img src="2.jpg" alt="">
+            <img src="imgs/affiche conclusion.jpg" alt="">
         </figure>
-        <div class="content row">
-            <h3>Photography</h3>
-            <p>Novembre</p>
-            <p>2025</p>
+        <div class="contentblock">
+            <div>
+            <h1>Un continent qui se raconte en gestes, en sons et en couleurs</h1>
+            </div>
+
+            <div>
+                <p>À travers ces quatre regards, une évidence apparaît : les archives de l’Amérique du Sud ne se conservent pas dans le silence des vitrines, mais dans la voix de ses peuples.</p>
+                <p>Elles se dessinent sur les façades colombiennes, se chantent dans les hauteurs boliviennes, se crient dans les stades argentins et se portent sur les corps brésiliens. Chaque forme d’art, qu’elle soit graphique, musicale, sportive ou textile, raconte une parcelle du continent, sa capacité à transformer l’histoire en énergie créatrice.</p>
+                <p>Ce magazine n’est qu’un fragment de cette vaste mémoire vivante, mais il témoigne d’une vérité simple : ici, la culture n’est jamais un souvenir figé. Elle est un souffle qui continue d’avancer, de se renouveler et de rappeler que l’Amérique du Sud écrit son histoire avec des gestes qui vibrent encore.</p>
+            </div>
         </div>
     </section>
 
-    <section>
-        <figure>
-            <img src="3.jpg" alt="">
-        </figure>
-        <div class="content row">
-            <h3>Photography</h3>
-            <p>Novembre</p>
-            <p>2025</p>
-        </div>
-    </section>
-
-    <section>
-        <figure>
-            <img src="4.jpg" alt="">
-        </figure>
-        <div class="content row">
-            <h3>Photography</h3>
-            <p>Novembre</p>
-            <p>2025</p>
-        </div>
-    </section>
-
+    <!-- FOOTER - navigation snippet for your page -->
+   <footer>
+    <h2>Fanzine</h2>
+    <h5>Anastacio Rigolone</h5>
+   </footer>
     
 </body>
 </html>

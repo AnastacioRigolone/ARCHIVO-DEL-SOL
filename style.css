@@ -1,0 +1,386 @@
+/*--------------------------- BOX ---------------------------*/
+.box {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 240px;
+    height: 240px;
+    background: #1A5632;
+    mix-blend-mode: difference;
+    transform: translate(0, -50%);
+}
+
+
+.box2 {
+    position: fixed;
+    top: 65%;
+    left: 0;
+    width: 240px;
+    height: 240px;
+    background: #FF6200;
+    mix-blend-mode: difference;
+    transform: translate(0, -50%);
+}
+
+.box,
+.box2 {
+    position: fixed;
+    z-index: -1;
+    /* les place derrière tout le contenu */
+    pointer-events: none;
+    /* facultatif : évite de bloquer les clics */
+}
+
+/*--------------------------- FONTS FAMILY ---------------------------*/
+
+@font-face {
+    font-family: "ErotiqueAlternateTrial-Bold";
+    src: url("Fonts/ErotiqueAlternateTrial-Bold.ttf");
+}
+
+@font-face {
+    font-family: "NeueMetanaNext-SemiBold";
+    src: url("Fonts/NeueMetanaNext-SemiBold.otf");
+}
+
+@font-face {
+    font-family: "NeueMetanaNextOutline-Black";
+    src: url("Fonts/NeueMetanaNextOutline-Black.otf");
+}
+
+@font-face {
+    font-family: "Syne-Regular";
+    src: url("Fonts/Syne-Regular");
+}
+
+@font-face {
+    font-family: "Syne-Extra";
+    src: url("Fonts/Syne-Extra.ttf");
+}
+
+figure {
+    /* outline: 10px solid rgb(0, 0, 0); outline-offset: -12px; */
+    border: 12px solid #000000;
+}
+
+h1 {
+    font-family: "NeueMetanaNext-SemiBold";
+    font-size: 2em;
+    color: #FF6200;
+}
+
+h2 {
+    font-family: "ErotiqueAlternateTrial-Bold";
+    font-size: 1em;
+    color: #FF6200;
+}
+
+h3 {
+    font-family: "ErotiqueAlternateTrial-Bold";
+    font-size: 1em;
+    color: #1A5632;
+    padding-top: 100px;
+    text-align: center;
+}
+
+h4 {
+    font-family: "NeueMetanaNext-SemiBold";
+    font-size: 4.5em;
+    color: #000000;
+    margin-top: 0%;
+}
+
+p {
+    font-family: "Syne-Regular";
+    font-size: 1sem;
+}
+
+a {
+    font-family: Syne-Extra;
+
+}
+
+/*--------------------------- MENU ---------------------------*/
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    /* hauteur du header */
+    z-index: 1000;
+}
+
+main {
+    margin-top: 70px;
+    /* même taille que la hauteur du header */
+}
+
+header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+@media(max-width: 1280px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+        color: rgb(0, 0, 0);
+    }
+
+    header .menu-btn {
+        color: rgb(0, 0, 0);
+    }
+}
+
+@media(max-width: 960px) {
+    header nav {
+        flex-direction: column;
+        color: rgb(0, 0, 0);
+    }
+}
+
+.logo {
+    font-size: 32px;
+    cursor: pointer;
+    margin-top: 4rem;
+    padding-left: 8rem;
+}
+
+.bold {
+    font-family: Syne-Extra;
+    color: #1A5632;
+}
+
+.italic {
+    font-family: ErotiqueAlternateTrial-Bold;
+    font-style: italic;
+    font-size: 40px;
+    color: #FF6200;
+}
+
+/*--------------------------- Menu à droite ---------------------------*/
+nav {
+    display: flex;
+    gap: 40px;
+    padding-right: 8rem;
+    margin-top: 2rem;
+}
+
+.menu-btn {
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+    color: #1A5632;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*--------------------------- INTRODUCTION ---------------------------*/
+
+/* espace entre le menu et le contenu */
+.contentblockIntro {
+    margin-top: 200px;
+    display: flex;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+.contentblockIntro>div:first-of-type {
+    flex: 0 1 30rem;
+}
+
+.contentblockIntro>div:last-of-type {
+    flex: 1 0 30rem;
+
+}
+
+@media(max-width: 60rem) {
+    .contentblockIntro {
+        flex-direction: column;
+    }
+
+    .contentblockIntro>div {
+        flex: 1 !important;
+    }
+}
+
+.italictext {
+    font-family: ErotiqueAlternateTrial-Bold;
+    font-style: italic;
+    font-size: 90px;
+    color: #FF6200;
+}
+
+/*.contentblockIntro {
+        margin-top: 200px;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }*/
+
+/*--------------------------- Hover souligné ---------------------------*/
+.menu-btn::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #FF6200;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.menu-btn:hover::after {
+    width: 100%;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section figure {
+    flex: 1 1 100%;
+}
+
+section .content {
+    flex: 0 1 auto;
+}
+
+
+figure {
+    display: flex;
+}
+
+section figure img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-height: 100vh;
+}
+
+/*--------------------------- COLONNES ---------------------------*/
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.row>* {
+    flex: 1;
+}
+
+.content {
+    padding: 1rem;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+li {
+    max-width: 80ch;
+}
+
+img {
+    max-height: 80vh;
+}
+
+section {
+    max-width: 60rem;
+    margin: auto;
+}
+
+.contentblock {
+    display: flex;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.contentblock>div:first-of-type {
+    flex: 0 1 30cm;
+}
+
+.contentblock>div:last-of-type {
+    flex: 1 0 30rem;
+}
+
+@media(max-width: 60rem) {
+    .contentblock {
+        flex-direction: column;
+    }
+
+    .contentblock>div {
+        flex: 1 !important;
+    }
+}
+
+/*--------------------------- FOOTER ---------------------------*/
+h2 {
+    position: fixed;
+    bottom: 5rem;
+    right: 3px;
+    padding: 1rem;
+    background-color: #1A5632;
+    color: #FF6200;
+}
+
+h5 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 70px;
+    font-family: "ErotiqueAlternateTrial-Bold";
+    font-style: italic;
+    color: #000000;
+}
+
+/*------------------------------------------------------*/
+/* scroll 
+       html, body { scroll-snap-type: y mandatory; }
+       section { scroll-snap-align: start; }*/
+
+
+/* section { outline: 2px solid rgb(255, 0, 255); outline-offset: -3px; }
+       figure { outline: 2px solid rgb(76, 0, 255); outline-offset: -3px; }
+       .content { outline: 2px solid rgb(86, 0, 68); outline-offset: -3px; } */
